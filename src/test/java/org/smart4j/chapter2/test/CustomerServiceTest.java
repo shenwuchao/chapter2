@@ -1,14 +1,11 @@
 package org.smart4j.chapter2.test;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runners.Parameterized;
 import org.smart4j.chapter2.model.Customer;
 import org.smart4j.chapter2.service.CustomerService;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,13 +17,13 @@ public class CustomerServiceTest {
 
     private final CustomerService customerService;
 
-
-    public CustomerServiceTest(CustomerService customerService) {
-        this.customerService = customerService;
+    public CustomerServiceTest () {
+        customerService = new CustomerService();
     }
+
     @Before
     public void init () {
-        
+        System.out.println("init test class");
     }
 
     @Test
