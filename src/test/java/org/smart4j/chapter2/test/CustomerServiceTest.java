@@ -3,6 +3,7 @@ package org.smart4j.chapter2.test;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.smart4j.chapter2.helper.DatabaseHelper;
 import org.smart4j.chapter2.model.Customer;
 import org.smart4j.chapter2.service.CustomerService;
 
@@ -24,6 +25,7 @@ public class CustomerServiceTest {
     @Before
     public void init () {
         System.out.println("init test class");
+        DatabaseHelper.executeSqlFile("sql/customer_init.sql");
     }
 
     @Test
@@ -50,16 +52,16 @@ public class CustomerServiceTest {
     }
     @Test
     public void updateCustomerTest () {
-        Map<String, Object> feildMap = new HashMap<String, Object>();
+        Map<String, Object> fieldMap = new HashMap<String, Object>();
         long id = 2;
-        feildMap.put("name", "customer22");
-        boolean result = customerService.updateCustomer(id, feildMap);
+        fieldMap.put("name", "customer22");
+        boolean result = customerService.updateCustomer(id, fieldMap);
         Assert.assertTrue(result);
     }
 
     @Test
     public void deleteCustomerTest() {
-        long id = 3;
+        long id = 2;
         boolean result = customerService.deleteCustomer(id);
         Assert.assertTrue(result);
     }

@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URISyntaxException;
 import java.util.Properties;
 
 /*
@@ -24,7 +25,6 @@ public final class PropsUtil {
         InputStream is = null;
 
         try {
-
             is = Thread.currentThread()
                     .getContextClassLoader().getResourceAsStream(fileName);
             if (is == null) {
